@@ -1,0 +1,3 @@
+C:\LeagueSharp\LeagueSharp-master\FedJax\obj\Release\FedJax.csprojResolveAssemblyReference.cache
+C:\LeagueSharp\LeagueSharp-master\FedJax\obj\Release\FedJax.Properties.Resources.resources
+C:\LeagueSharp\LeagueSharp-master\FedJax\obj\Release\FedJax.csproj.GenerateResource.Cache

@@ -1,0 +1,17 @@
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\FedJax.exe.config
+C:\LeagueSharp\LeagueSharp-master\FedJax\obj\Debug\FedJax.csprojResolveAssemblyReference.cache
+C:\LeagueSharp\LeagueSharp-master\FedJax\obj\Debug\FedJax.Properties.Resources.resources
+C:\LeagueSharp\LeagueSharp-master\FedJax\obj\Debug\FedJax.csproj.GenerateResource.Cache
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\FedJax.exe
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\FedJax.pdb
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\LeagueSharp.Common.dll
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\LeagueSharp.dll
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\SharpDX.dll
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\SharpDX.Direct3D9.dll
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\SharpDX.Toolkit.dll
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\SharpDX.Toolkit.Graphics.dll
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\LeagueSharp.xml
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\SharpDX.Toolkit.xml
+C:\LeagueSharp\LeagueSharp-master\FedJax\bin\Release\SharpDX.Toolkit.Graphics.xml
+C:\LeagueSharp\LeagueSharp-master\FedJax\obj\Debug\FedJax.exe
+C:\LeagueSharp\LeagueSharp-master\FedJax\obj\Debug\FedJax.pdb
