@@ -1,0 +1,18 @@
+C:\Users\Davide\Desktop\Leaguesharp-master\Aatrox\bin\Debug\Aatrox.exe.config
+E:\Leaguesharp-master\Aatrox\bin\Debug\Aatrox.exe.config
+D:\League#\LeagueSharp\Aatrox - Adeirz\bin\Debug\Aatrox.exe.config
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\Aatrox.exe.config
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\obj\Debug\Aatrox.csprojResolveAssemblyReference.cache
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\Aatrox.exe
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\Aatrox.pdb
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\LeagueSharp.Common.dll
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\LeagueSharp.dll
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\SharpDX.dll
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\SharpDX.Direct3D9.dll
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\SharpDX.Toolkit.dll
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\SharpDX.Toolkit.Graphics.dll
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\LeagueSharp.xml
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\SharpDX.Toolkit.xml
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\SharpDX.Toolkit.Graphics.xml
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\obj\Debug\Aatrox.exe
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\obj\Debug\Aatrox.pdb
