@@ -48,7 +48,7 @@ namespace FedLeblanc
             R = new Spell(SpellSlot.R, 700);
 
             IgniteSlot = Player.GetSpellSlot("SummonerDot");
-            DFG = Utility.Map.GetMap()._MapType == Utility.Map.MapType.TwistedTreeline ? new Items.Item(3188, 750) : new Items.Item(3128, 750);
+            DFG = new Items.Item(3128, 750);
 
             W.SetSkillshot(0.5f, 220, 1300, false, SkillshotType.SkillshotCircle);
             E.SetSkillshot(0.25f, 95, 1600, true, SkillshotType.SkillshotLine);            
@@ -241,7 +241,7 @@ namespace FedLeblanc
                 {
                     Q.CastOnUnit(qTarget);
 
-                    if (userDFG && wTarget != null && comboDamage > wTarget.Health && DFG.IsReady() && W.IsReady() && R.IsReady())
+                    if (DFG.IsReady())
                     {
                         DFG.Cast(wTarget);
                     }
@@ -257,6 +257,11 @@ namespace FedLeblanc
                 if (useW && wTarget != null && W.IsReady() && !LeblancPulo())
                 {
                     W.CastOnUnit(wTarget);
+                }
+				
+				if (DFG.IsReady())
+                {
+                        DFG.Cast(wTarget);
                 }
 
                 if (useE && eTarget != null && E.IsReady())
@@ -316,11 +321,10 @@ namespace FedLeblanc
                 {
                     Q.CastOnUnit(qTarget);
 
-                    if (userDFG && wTarget != null && comboDamage > wTarget.Health && DFG.IsReady() && W.IsReady() && R.IsReady())
-                    {
+					if (DFG.IsReady())
+					{
                         DFG.Cast(wTarget);
-                    }
-
+					}
                     if (Player.Spellbook.GetSpell(SpellSlot.R).Name.Contains("LeblancChaos"))
                     {
                         W.CastOnUnit(qTarget);
@@ -341,7 +345,10 @@ namespace FedLeblanc
                     if (ePred.Hitchance >= HitChance.High)
                         E.Cast(ePred.CastPosition);
                 }
-
+				if (DFG.IsReady())
+                {
+                        DFG.Cast(wTarget);
+                }
                 if (useW && wTarget != null && W.IsReady() && !LeblancPulo())
                 {
                     W.CastOnUnit(wTarget);
