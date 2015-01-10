@@ -314,7 +314,7 @@ namespace FedMaokai
 
             if (qTarget != null && Config.Item("UseQHarass").GetValue<bool>() && Q.IsReady())
             {
-                if (!qTarget.IsVisible)
+                if (qTarget.IsVisible)
                 Q.Cast(qTarget);
             }
             if (eTarget != null && Config.Item("UseEHarass").GetValue<bool>() && E.IsReady())
