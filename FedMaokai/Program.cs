@@ -274,7 +274,7 @@ namespace FedMaokai
             }
             if (qTarget != null && Config.Item("UseQCombo").GetValue<bool>() && Q.IsReady())
             {
-                if (!qTarget.IsVisible)
+                if (qTarget.IsVisible)
                 Q.Cast(qTarget);
             }
             if (eTarget != null && Config.Item("UseECombo").GetValue<bool>() && E.IsReady())
@@ -330,7 +330,7 @@ namespace FedMaokai
 
             if (qTarget != null && Config.Item("UseQHarass").GetValue<bool>() && Q.IsReady())
             {
-                if (!qTarget.IsVisible)
+                if (qTarget.IsVisible)
                 Q.Cast(qTarget);
             }
             if (eTarget != null && Config.Item("UseEHarass").GetValue<bool>() && E.IsReady())
