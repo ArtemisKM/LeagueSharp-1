@@ -171,7 +171,7 @@ namespace FedDrMundo
 
             if (WActive && W.IsReady())
             {
-                int inimigos = Utility.CountEnemysInRange(600);
+                int inimigos = Utility.CountEnemiesInRange(600);
 
                 if (!Config.Item("LaneClearActive").GetValue<KeyBind>().Active && !Config.Item("JungleFarmActive").GetValue<KeyBind>().Active && inimigos == 0)
                 {
@@ -235,7 +235,7 @@ namespace FedDrMundo
         
         private static void LifeSave()
         {
-            int inimigos = Utility.CountEnemysInRange(900);
+            int inimigos = Utility.CountEnemiesInRange(900);
 
             if (Player.Health < (Player.MaxHealth * Config.Item("percenthp").GetValue<Slider>().Value * 0.01) && R.IsReady() && inimigos >= 1)
             {
