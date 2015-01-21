@@ -107,7 +107,7 @@ namespace FedJax
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("JungleFarmActive", "JungleFarm!").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
 
             Config.AddSubMenu(new Menu("Misc", "Misc"));
-            Config.SubMenu("Misc").AddItem(new MenuItem("laugh", "Troll laugh?").SetValue(true));
+            Config.SubMenu("Misc").AddItem(new MenuItem("laugh", "Troll laugh?(KeepOff)").SetValue(false));
             Config.SubMenu("Misc").AddItem(new MenuItem("AutoI", "Auto Ignite").SetValue(true));
             Config.SubMenu("Misc").AddItem(new MenuItem("stun", "Interrupt Spells").SetValue(true));
             Config.SubMenu("Misc").AddItem(new MenuItem("AutoEWQTower", "Auto Attack my tower").SetValue(false));
@@ -148,7 +148,7 @@ namespace FedJax
 
             Game.OnGameUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
-            //Obj_AI_Base.OnProcessSpellCast += OnProcessSpell;
+            Obj_AI_Base.OnProcessSpellCast += OnProcessSpell;
             Interrupter.OnPossibleToInterrupt += Interrupter_OnPossibleToInterrupt;
 
             Game.PrintChat("<font color=\"#00BFFF\">Fed" + ChampionName + " -</font> <font color=\"#FFFFFF\">Loaded!</font>");
@@ -216,15 +216,15 @@ namespace FedJax
                 JungleFarm();
             }
 
-            //if (Config.Item("Ward").GetValue<KeyBind>().Active)
-            //{
-            //    Jumper.wardJump(Game.CursorPos.To2D());
-            //}
+            if (Config.Item("Ward").GetValue<KeyBind>().Active)
+            {
+                Jumper.wardJump(Game.CursorPos.To2D());
+            }
 
-            //if (Config.Item("AutoSmite").GetValue<KeyBind>().Active)
-            //{
-            //    AutoSmite();
-            //}            
+            if (Config.Item("AutoSmite").GetValue<KeyBind>().Active)
+            {
+                AutoSmite();
+            }            
 
             if (Config.Item("AutoEWQTower").GetValue<KeyBind>().Active)
             {
@@ -264,7 +264,7 @@ namespace FedJax
 
         private static void AutoUlt()
         {
-            int inimigos = Utility.CountEnemysInRange(650);
+            int inimigos = Utility.CountEnemiesInRange(650);
 
             if (Config.Item("minEnemies").GetValue<Slider>().Value <= inimigos)
             {
@@ -300,8 +300,8 @@ namespace FedJax
         {
             var useEi = Config.Item("setE").GetValue<StringList>().SelectedIndex;
 
-            if (!Eactive && ((useEi == 0 || useEi == 2) && Q.IsReady() && (Utility.CountEnemysInRange((int)Q.Range + 200) >= 1)) ||
-                 (useEi >= 1 && (Utility.CountEnemysInRange((int)E.Range + 100) >= 1)))
+            if (!Eactive && ((useEi == 0 || useEi == 2) && Q.IsReady() && (Utility.CountEnemiesInRange((int)Q.Range + 200) >= 1)) ||
+                 (useEi >= 1 && (Utility.CountEnemiesInRange((int)E.Range + 100) >= 1)))
             {
                 E.Cast();
                 E.LastCastAttemptT = Environment.TickCount;
@@ -315,7 +315,7 @@ namespace FedJax
 
             if (E.IsReady() && Environment.TickCount - E.LastCastAttemptT <= 5000)
             {
-                if (Utility.CountEnemysInRange((int)E.Range) >= 1)
+                if (Utility.CountEnemiesInRange((int)E.Range) >= 1)
                 {
                     E.Cast();
                     Eactive = false;
@@ -566,64 +566,59 @@ namespace FedJax
                 }
             }
         }
-    }
-}
+    
 
-        //private static void AutoSmite()
-        //{
-        //    if (Config.Item("AutoSmite").GetValue<KeyBind>().Active)
-        //    {
-        //        float[] SmiteDmg = { 20 * Player.Level + 370, 30 * Player.Level + 330, 40 * Player.Level + 240, 50 * Player.Level + 100 };
-        //        string[] MonsterNames = { "LizardElder", "AncientGolem", "Worm", "Dragon" };
-        //        string[] Monstersteal = { "Worm", "Dragon" };
-        //        var vMinions = MinionManager.GetMinions(Player.ServerPosition, 350+Player.Spellbook.Spells.FirstOrDefault(
-        //            spell => spell.Name.Contains("smite")).SData.CastRange[0], MinionTypes.All, MinionTeam.NotAlly, MinionOrderTypes.Health);
-        //        foreach (var vMinion in vMinions)
-        //        {
-        //            if (vMinion != null
-        //                && !vMinion.IsDead
-        //                && !Player.IsDead
-        //                && !Player.IsStunned
-        //                && SmiteSlot != SpellSlot.Unknown
-        //                && Player.Spellbook.CanUseSpell(SmiteSlot) == SpellState.Ready)
-        //            {
-        //                if ((vMinion.Health < SmiteDmg.Max()) && (MonsterNames.Any(name => vMinion.BaseSkinName.StartsWith(name))))
-        //                {
-        //                    if (Config.Item("WardJumpSmite").GetValue<bool>())
-        //                    {
-        //                        if (Player.Distance(vMinion) > 720 && (Monstersteal.Any(name => vMinion.BaseSkinName.StartsWith(name))))
-        //                        {
-        //                            Jumper.wardJump(Game.CursorPos.To2D());
-        //                        }
-        //                    }
 
-        //                    Player.Spellbook.CastSpell(SmiteSlot, vMinion);
+        private static void AutoSmite()
+        {
+            if (Config.Item("AutoSmite").GetValue<KeyBind>().Active)
+            {
+                float[] SmiteDmg = { 20 * Player.Level + 370, 30 * Player.Level + 330, 40 * Player.Level + 240, 50 * Player.Level + 100 };
+                string[] MonsterNames = { "SRU_Red", "SRU_Blue", "SRU_Baron", "SRU_Dragon" };
+                string[] Monstersteal = { "SRU_Baron", "SRU_Dragon", "SRU_Red", "SRU_Blue" };
+                var vMinions = MinionManager.GetMinions(Player.ServerPosition, 350+Player.Spellbook.Spells.FirstOrDefault(
+                    spell => spell.Name.Contains("smite")).SData.CastRange[0], MinionTypes.All, MinionTeam.NotAlly, MinionOrderTypes.Health);
+                foreach (var vMinion in vMinions)
+                {
+                    if (vMinion != null
+                        && !vMinion.IsDead
+                        && !Player.IsDead
+                        && !Player.IsStunned
+                        && SmiteSlot != SpellSlot.Unknown
+                        && Player.Spellbook.CanUseSpell(SmiteSlot) == SpellState.Ready)
+                    {
+                        if ((vMinion.Health < SmiteDmg.Max()) && (MonsterNames.Any(name => vMinion.BaseSkinName.StartsWith(name))))
+                        {
+                            if (Config.Item("WardJumpSmite").GetValue<bool>())
+                            {
+                                if (Player.Distance(vMinion) > 720 && (Monstersteal.Any(name => vMinion.BaseSkinName.StartsWith(name))))
+                                {
+                                    Jumper.wardJump(Game.CursorPos.To2D());
+                                }
+                            }
+                            
+                            ObjectManager.Player.Spellbook.CastSpell(SmiteSlot, vMinion);
 
-        //                    if (Config.Item("laugh").GetValue<bool>())
-        //                    {
-        //                        Game.Say("/l");
-        //                    }
+                        }
+                    }
+                }
+            }
+        }
 
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
-//        private static void OnProcessSpell(LeagueSharp.Obj_AI_Base obj, LeagueSharp.GameObjectProcessSpellCastEventArgs arg)
-//        {
-//            if (Jumper.testSpells.ToList().Contains(arg.SData.Name))
-//            {
-//                Jumper.testSpellCast = arg.End.To2D();
-//                Polygon pol;
-//                if ((pol = Program.map.getInWhichPolygon(arg.End.To2D())) != null)
-//                {
-//                    Jumper.testSpellProj = pol.getProjOnPolygon(arg.End.To2D());
-//                }
-//            }
-//        }
+        private static void OnProcessSpell(LeagueSharp.Obj_AI_Base obj, LeagueSharp.GameObjectProcessSpellCastEventArgs arg)
+        {
+            if (Jumper.testSpells.ToList().Contains(arg.SData.Name))
+            {
+                Jumper.testSpellCast = arg.End.To2D();
+                Polygon pol;
+                if ((pol = Program.map.getInWhichPolygon(arg.End.To2D())) != null)
+                {
+                    Jumper.testSpellProj = pol.getProjOnPolygon(arg.End.To2D());
+                }
+            }
+        }
 
         
 
-//    }
-//}
+    }
+}

@@ -53,19 +53,19 @@ namespace FedJax
             return (dist1 > dist2) ? vec2 : vec1;
         }
 
-        //public void Draw(System.Drawing.Color color, int width = 1)
-        //{
-        //    for (var i = 0; i <= Points.Count - 1; i++)
-        //    {
-        //        if (Points[i].Distance(Jumper.Player.Position) < 1500)
-        //        {
-        //            var nextIndex = (Points.Count - 1 == i) ? 0 : (i + 1);
-        //            var from = Drawing.WorldToScreen(Points[i].To3D());
-        //            var to = Drawing.WorldToScreen(Points[nextIndex].To3D());
-        //            Drawing.DrawLine(from[0], from[1], to[0], to[1], width, color);
-        //        }
-        //    }
-        //}
+        public void Draw(System.Drawing.Color color, int width = 1)
+        {
+            for (var i = 0; i <= Points.Count - 1; i++)
+            {
+                if (Points[i].Distance(Jumper.Player.Position) < 1500)
+                {
+                    var nextIndex = (Points.Count - 1 == i) ? 0 : (i + 1);
+                    var from = Drawing.WorldToScreen(Points[i].To3D());
+                    var to = Drawing.WorldToScreen(Points[nextIndex].To3D());
+                    Drawing.DrawLine(from[0], from[1], to[0], to[1], width, color);
+                }
+            }
+        }
 
         private Vector2 projOnLine(Vector2 v, Vector2 w, Vector2 p)
         {
