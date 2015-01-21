@@ -236,7 +236,7 @@ namespace FedMaokai
         
         private static void AutoUlt()
         {
-            int inimigos = Utility.CountEnemysInRange(650);
+            int inimigos = Utility.CountEnemiesInRange(650);
 
             var RMana = Config.Item("ManaR").GetValue<Slider>().Value;
             var MPercentR = Player.Mana * 100 / Player.MaxMana;
