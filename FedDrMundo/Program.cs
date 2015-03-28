@@ -54,7 +54,6 @@ namespace FedDrMundo
             R = new Spell(SpellSlot.R, Player.AttackRange + 25);
 
             IgniteSlot = Player.GetSpellSlot("SummonerDot");
-            SmiteSlot = Player.GetSpellSlot("SummonerSmite");
             
             Q.SetSkillshot(0.50f, 75f, 1500f, true, SkillshotType.SkillshotLine);            
 
@@ -92,11 +91,10 @@ namespace FedDrMundo
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseQJFarm", "Use Q").SetValue(true));
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseWJFarm", "Use W").SetValue(true));
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseEJFarm", "Use E").SetValue(true));            
-            Config.SubMenu("JungleFarm").AddItem(new MenuItem("AutoSmite", "Auto Smite!").SetValue<KeyBind>(new KeyBind('J', KeyBindType.Toggle)));
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("JungleFarmActive", "JungleFarm!").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
 
             Config.AddSubMenu(new Menu("Misc", "Misc"));
-            Config.SubMenu("Misc").AddItem(new MenuItem("laugh", "Troll laugh?").SetValue(true));
+            Config.SubMenu("Misc").AddItem(new MenuItem("laugh", "Troll laugh?").SetValue(false));
             Config.SubMenu("Misc").AddItem(new MenuItem("KS", "Killsteal using Q").SetValue(false));
             Config.SubMenu("Misc").AddItem(new MenuItem("AutoI", "Auto Ignite").SetValue(true));
             Config.SubMenu("Misc").AddItem(new MenuItem("RangeQ", "Q Range Slider").SetValue(new Slider(980, 1000, 0)));
@@ -137,7 +135,7 @@ namespace FedDrMundo
 
             Config.AddToMainMenu();
 
-            Game.OnGameUpdate += Game_OnGameUpdate;
+            Game.OnUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += Drawing_OnDraw;            
 
             Game.PrintChat("<font color=\"#00BFFF\">Fed" + ChampionName + " -</font> <font color=\"#FFFFFF\">Loaded!</font>");
@@ -211,8 +209,6 @@ namespace FedDrMundo
             if (Config.Item("KS").GetValue<bool>())
                 Killsteal();
 
-            if (Config.Item("AutoSmite").GetValue<KeyBind>().Active)            
-                AutoSmite();
 
             if (Config.Item("AutoI").GetValue<bool>())            
                 AutoIgnite();             
@@ -226,10 +222,6 @@ namespace FedDrMundo
             if (IgniteSlot != SpellSlot.Unknown && Player.Spellbook.CanUseSpell(IgniteSlot) == SpellState.Ready && iTarget.Health < Idamage)
             {
                 Player.Spellbook.CastSpell(IgniteSlot, iTarget);
-                if (Config.Item("laugh").GetValue<bool>())
-                {
-                    Game.Say("/l");
-                }
             }
         }
         
@@ -290,37 +282,6 @@ namespace FedDrMundo
             }
         }
 
-        private static void AutoSmite()
-        {
-            if (Config.Item("AutoSmite").GetValue<KeyBind>().Active)
-            {
-                float[] SmiteDmg = { 20 * Player.Level + 370, 30 * Player.Level + 330, 40 * Player.Level + 240, 50 * Player.Level + 100 };
-                string[] MonsterNames = { "LizardElder", "AncientGolem", "Worm", "Dragon" };                
-                var vMinions = MinionManager.GetMinions(Player.ServerPosition, Player.Spellbook.Spells.FirstOrDefault(
-                    spell => spell.Name.Contains("smite")).SData.CastRange[0], MinionTypes.All, MinionTeam.NotAlly, MinionOrderTypes.Health);
-                foreach (var vMinion in vMinions)
-                {
-                    if (vMinion != null
-                        && !vMinion.IsDead
-                        && !Player.IsDead
-                        && !Player.IsStunned
-                        && SmiteSlot != SpellSlot.Unknown
-                        && Player.Spellbook.CanUseSpell(SmiteSlot) == SpellState.Ready)
-                    {
-                        if ((vMinion.Health < SmiteDmg.Max()) && (MonsterNames.Any(name => vMinion.BaseSkinName.StartsWith(name))))
-                        { 
-                            Player.Spellbook.CastSpell(SmiteSlot, vMinion);
-
-                            if (Config.Item("laugh").GetValue<bool>())
-                            {
-                                Game.Say("/l");
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
         
         private static void Combo()
         {

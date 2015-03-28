@@ -117,7 +117,7 @@ namespace FedLeblanc
             Config.SubMenu("Drawings").AddItem(dmgAfterComboItem);
             Config.AddToMainMenu();
             
-            Game.OnGameUpdate += Game_OnGameUpdate;           
+            Game.OnUpdate += Game_OnGameUpdate;           
             Drawing.OnDraw += Drawing_OnDraw;
             AntiGapcloser.OnEnemyGapcloser += AntiGapcloser_OnEnemyGapcloser;
             Interrupter.OnPossibleToInterrupt += Interrupter_OnPossibleToInterrupt;

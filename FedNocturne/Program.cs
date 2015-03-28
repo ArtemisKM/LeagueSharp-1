@@ -44,8 +44,7 @@ namespace FedNocturne
             E.SetTargetted(0.5f, 1700f);
             R.SetTargetted(0.75f, 2500f);
 
-            IgniteSlot = Player.GetSpellSlot("SummonerDot");
-            SmiteSlot = Player.GetSpellSlot("SummonerSmite");            
+            IgniteSlot = Player.GetSpellSlot("SummonerDot");          
 
             Config = new Menu("Fed" + ChampionName, ChampionName, true);
 
@@ -78,7 +77,6 @@ namespace FedNocturne
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseQJFarm", "Use Q").SetValue(true));
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseWJFarm", "Use W").SetValue(true));
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseEJFarm", "Use E").SetValue(true));
-            Config.SubMenu("JungleFarm").AddItem(new MenuItem("AutoSmite", "Auto Smite!").SetValue<KeyBind>(new KeyBind('J', KeyBindType.Toggle)));
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("JungleFarmActive", "JungleFarm!").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
 
             Config.AddSubMenu(new Menu("Misc", "Misc"));
@@ -119,7 +117,7 @@ namespace FedNocturne
 
             Config.AddToMainMenu();
 
-            Game.OnGameUpdate += Game_OnGameUpdate;
+            Game.OnUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
             Drawing.OnEndScene += Drawing_OnEndScene;
             Interrupter.OnPossibleToInterrupt += Interrupter_OnPossibleToInterrupt;
@@ -162,11 +160,6 @@ namespace FedNocturne
             if (Config.Item("AutoRStrong").GetValue<KeyBind>().Active)
             {
                 AutoRMode();
-            }
-
-            if (Config.Item("AutoSmite").GetValue<KeyBind>().Active)
-            {
-                AutoSmite();
             }
 
             if (Config.Item("AutoI").GetValue<bool>())
@@ -226,30 +219,7 @@ namespace FedNocturne
                 Player.Spellbook.CastSpell(IgniteSlot, iTarget);                
             }
         }
-        private static void AutoSmite()
-        {
-            if (SmiteSlot == SpellSlot.Unknown)
-                return;
 
-            if (!Config.Item("AutoSmite").GetValue<KeyBind>().Active) return;
-
-            string[] monsterNames = { "LizardElder", "AncientGolem", "Worm", "Dragon" };
-            var firstOrDefault = Player.Spellbook.Spells.FirstOrDefault(
-                spell => spell.Name.Contains("mite"));
-            if (firstOrDefault == null) return;
-
-            var vMonsters = MinionManager.GetMinions(Player.ServerPosition, firstOrDefault.SData.CastRange[0], MinionTypes.All, MinionTeam.NotAlly, MinionOrderTypes.Health);
-            foreach (var vMonster in vMonsters.Where(vMonster => vMonster != null
-                                                              && !vMonster.IsDead
-                                                              && !Player.IsDead
-                                                              && !Player.IsStunned
-                                                              && SmiteSlot != SpellSlot.Unknown
-                                                              && Player.Spellbook.CanUseSpell(SmiteSlot) == SpellState.Ready)
-                                                              .Where(vMonster => (vMonster.Health < Player.GetSummonerSpellDamage(vMonster, Damage.SummonerSpell.Smite)) && (monsterNames.Any(name => vMonster.BaseSkinName.StartsWith(name)))))
-            {
-                Player.Spellbook.CastSpell(SmiteSlot, vMonster);
-            }
-        }
         private static float GetRRange()
         {
             return 1250 + (750 * R.Level);

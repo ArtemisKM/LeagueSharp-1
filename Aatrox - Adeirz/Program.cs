@@ -116,7 +116,7 @@ namespace Aatrox
             IgniteSlot = Player.GetSpellSlot("SummonerDot");
 
             //Add the events we are going to use:
-            Game.OnGameUpdate += Game_OnGameUpdate;
+            Game.OnUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
             Interrupter.OnPossibleToInterrupt += Interrupter_OnPossibleToInterrupt;
             Game.PrintChat(ChampionName + " by Ecko loaded!");

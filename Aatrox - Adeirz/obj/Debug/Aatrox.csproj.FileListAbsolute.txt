@@ -16,3 +16,12 @@ C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\SharpDX.Toolkit.xml
 C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Debug\SharpDX.Toolkit.Graphics.xml
 C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\obj\Debug\Aatrox.exe
 C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\obj\Debug\Aatrox.pdb
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Release\Aatrox.exe.config
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Release\Aatrox.exe
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Release\Aatrox.pdb
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Release\LeagueSharp.Common.dll
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Release\LeagueSharp.dll
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Release\SharpDX.dll
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Release\SharpDX.Direct3D9.dll
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Release\clipper_library.dll
+C:\LeagueSharp\LeagueSharp-master\Aatrox - Adeirz\bin\Release\LeagueSharp.xml

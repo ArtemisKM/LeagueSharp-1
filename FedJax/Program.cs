@@ -146,7 +146,7 @@ namespace FedJax
 
             Config.AddToMainMenu();
 
-            Game.OnGameUpdate += Game_OnGameUpdate;
+            Game.OnUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnProcessSpellCast += OnProcessSpell;
             Interrupter.OnPossibleToInterrupt += Interrupter_OnPossibleToInterrupt;
@@ -577,7 +577,7 @@ namespace FedJax
                 string[] MonsterNames = { "SRU_Red", "SRU_Blue", "SRU_Baron", "SRU_Dragon" };
                 string[] Monstersteal = { "SRU_Baron", "SRU_Dragon", "SRU_Red", "SRU_Blue" };
                 var vMinions = MinionManager.GetMinions(Player.ServerPosition, 350+Player.Spellbook.Spells.FirstOrDefault(
-                    spell => spell.Name.Contains("smite")).SData.CastRange[0], MinionTypes.All, MinionTeam.NotAlly, MinionOrderTypes.Health);
+                    spell => spell.Name.Contains("smite")).SData.CastRange, MinionTypes.All, MinionTeam.NotAlly, MinionOrderTypes.Health);
                 foreach (var vMinion in vMinions)
                 {
                     if (vMinion != null

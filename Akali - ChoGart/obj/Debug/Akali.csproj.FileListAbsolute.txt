@@ -1,0 +1,12 @@
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\bin\Release\Akali.exe.config
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\obj\Debug\Akali.csprojResolveAssemblyReference.cache
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\bin\Release\Akali.exe
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\bin\Release\Akali.pdb
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\bin\Release\LeagueSharp.Common.dll
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\bin\Release\LeagueSharp.dll
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\bin\Release\SharpDX.dll
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\bin\Release\SharpDX.Direct3D9.dll
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\bin\Release\clipper_library.dll
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\bin\Release\LeagueSharp.xml
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\obj\Debug\Akali.exe
+C:\LeagueSharp\LeagueSharp-master\Akali - ChoGart\obj\Debug\Akali.pdb

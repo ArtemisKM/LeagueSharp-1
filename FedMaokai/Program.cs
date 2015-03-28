@@ -130,7 +130,7 @@ namespace FedMaokai
             Config.SubMenu("Drawings").AddItem(dmgAfterComboItem);
             Config.AddToMainMenu();
 
-            Game.OnGameUpdate += Game_OnGameUpdate;
+            Game.OnUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += Drawing_OnDraw;            
             AntiGapcloser.OnEnemyGapcloser += AntiGapcloser_OnEnemyGapcloser;
             Interrupter.OnPossibleToInterrupt += Interrupter_OnPossibleToInterrupt;           
@@ -179,9 +179,6 @@ namespace FedMaokai
                 if (Config.Item("AutoW").GetValue<bool>())
                     AutoUnderTower();
 
-                if (Config.Item("AutoSmite").GetValue<KeyBind>().Active)
-                    AutoSmite();
-
                 if (Config.Item("AutoI").GetValue<bool>())
                     AutoIgnite();  
             }  
@@ -201,39 +198,7 @@ namespace FedMaokai
                 }
             }
         }
-
-        private static void AutoSmite()
-        {
-            if (Config.Item("AutoSmite").GetValue<KeyBind>().Active)
-            {
-                float[] SmiteDmg = { 20 * Player.Level + 370, 30 * Player.Level + 330, 40 * Player.Level + 240, 50 * Player.Level + 100 };
-                string[] MonsterNames = { "LizardElder", "AncientGolem", "Worm", "Dragon" };
-                var vMinions = MinionManager.GetMinions(Player.ServerPosition, Player.Spellbook.Spells.FirstOrDefault(
-                    spell => spell.Name.Contains("smite")).SData.CastRange[0], MinionTypes.All, MinionTeam.NotAlly, MinionOrderTypes.Health);
-                foreach (var vMinion in vMinions)
-                {
-                    if (vMinion != null
-                        && !vMinion.IsDead
-                        && !Player.IsDead
-                        && !Player.IsStunned
-                        && SmiteSlot != SpellSlot.Unknown
-                        && Player.Spellbook.CanUseSpell(SmiteSlot) == SpellState.Ready)
-                    {
-                        if ((vMinion.Health < SmiteDmg.Max()) && (MonsterNames.Any(name => vMinion.BaseSkinName.StartsWith(name))))
-                        {
-                            Player.Spellbook.CastSpell(SmiteSlot, vMinion);
-
-                            if (Config.Item("laugh").GetValue<bool>())
-                            {
-                                Game.Say("/l");
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
-        
+       
         private static void AutoUlt()
         {
             int inimigos = Utility.CountEnemiesInRange(650);
@@ -274,7 +239,7 @@ namespace FedMaokai
             }
             if (qTarget != null && Config.Item("UseQCombo").GetValue<bool>() && Q.IsReady())
             {
-                if (qTarget.IsVisible)
+                if (!qTarget.IsVisible)
                 Q.Cast(qTarget);
             }
             if (eTarget != null && Config.Item("UseECombo").GetValue<bool>() && E.IsReady())
@@ -314,7 +279,7 @@ namespace FedMaokai
 
             if (qTarget != null && Config.Item("UseQHarass").GetValue<bool>() && Q.IsReady())
             {
-                if (qTarget.IsVisible)
+                if (!qTarget.IsVisible)
                 Q.Cast(qTarget);
             }
             if (eTarget != null && Config.Item("UseEHarass").GetValue<bool>() && E.IsReady())
@@ -330,7 +295,7 @@ namespace FedMaokai
 
             if (qTarget != null && Config.Item("UseQHarass").GetValue<bool>() && Q.IsReady())
             {
-                if (qTarget.IsVisible)
+                if (!qTarget.IsVisible)
                 Q.Cast(qTarget);
             }
             if (eTarget != null && Config.Item("UseEHarass").GetValue<bool>() && E.IsReady())

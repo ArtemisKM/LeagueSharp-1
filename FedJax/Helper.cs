@@ -35,7 +35,7 @@ namespace FedJax
 
             EnemyInfo = EnemyTeam.Select(x => new EnemyInfo(x)).ToList();
 
-            Game.OnGameUpdate += Game_OnGameUpdate;
+            Game.OnUpdate += Game_OnGameUpdate;
         }
 
         void Game_OnGameUpdate(EventArgs args)

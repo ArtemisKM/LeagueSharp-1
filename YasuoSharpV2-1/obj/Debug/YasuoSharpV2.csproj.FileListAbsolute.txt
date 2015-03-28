@@ -1,1 +1,15 @@
 C:\LeagueSharp\LocalAssemblies\YasuoSharpV2_clone_3EA917EC\bin\Release\YasuoSharpV2.exe.config
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\bin\Release\YasuoSharpV2.exe.config
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\obj\Debug\YasuoSharpV2.csprojResolveAssemblyReference.cache
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\obj\Debug\YasuoSharpV2.Properties.Resources.resources
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\obj\Debug\YasuoSharpV2.csproj.GenerateResource.Cache
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\bin\Release\YasuoSharpV2.exe
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\bin\Release\YasuoSharpV2.pdb
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\bin\Release\clipper_library.dll
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\bin\Release\LeagueSharp.Common.dll
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\bin\Release\LeagueSharp.dll
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\bin\Release\SharpDX.Direct3D9.dll
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\bin\Release\SharpDX.dll
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\bin\Release\LeagueSharp.xml
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\obj\Debug\YasuoSharpV2.exe
+C:\LeagueSharp\LeagueSharp-master\YasuoSharpV2-1\obj\Debug\YasuoSharpV2.pdb

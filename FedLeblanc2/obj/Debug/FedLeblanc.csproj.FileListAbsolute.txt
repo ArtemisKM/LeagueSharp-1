@@ -1,0 +1,14 @@
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\bin\Release\FedLeblanc.exe.config
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\obj\Debug\FedLeblanc.csprojResolveAssemblyReference.cache
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\obj\Debug\FedLeblanc.Properties.Resources.resources
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\obj\Debug\FedLeblanc.csproj.GenerateResource.Cache
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\bin\Release\FedLeblanc.exe
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\bin\Release\FedLeblanc.pdb
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\bin\Release\LeagueSharp.Common.dll
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\bin\Release\LeagueSharp.dll
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\bin\Release\SharpDX.dll
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\bin\Release\SharpDX.Direct3D9.dll
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\bin\Release\clipper_library.dll
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\bin\Release\LeagueSharp.xml
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\obj\Debug\FedLeblanc.exe
+C:\LeagueSharp\LeagueSharp-master\FedLeblanc2\obj\Debug\FedLeblanc.pdb
