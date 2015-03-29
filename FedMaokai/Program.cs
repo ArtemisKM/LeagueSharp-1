@@ -50,7 +50,6 @@ namespace FedMaokai
             R = new Spell(SpellSlot.R, 625);
 
             IgniteSlot = Player.GetSpellSlot("SummonerDot");
-            SmiteSlot = Player.GetSpellSlot("SummonerSmite");
 
             Q.SetSkillshot(0.50f, 110f, 1200f, false, SkillshotType.SkillshotLine);
             E.SetSkillshot(1f, 250f, 1500f, false, SkillshotType.SkillshotCircle);
@@ -105,11 +104,9 @@ namespace FedMaokai
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseQJFarm", "Use Q").SetValue(true));
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseWJFarm", "Use W").SetValue(true));
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseEJFarm", "Use E").SetValue(true));
-            Config.SubMenu("JungleFarm").AddItem(new MenuItem("AutoSmite", "Auto Smite!").SetValue<KeyBind>(new KeyBind('J', KeyBindType.Toggle)));
             Config.SubMenu("JungleFarm").AddItem(new MenuItem("JungleFarmActive", "JungleFarm!").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
 
             Config.AddSubMenu(new Menu("Misc", "Misc"));
-            Config.SubMenu("Misc").AddItem(new MenuItem("laugh", "Troll laugh?").SetValue(true));
             Config.SubMenu("Misc").AddItem(new MenuItem("AutoI", "Auto Ignite").SetValue(true));
             Config.SubMenu("Misc").AddItem(new MenuItem("AutoW", "Auto W under Turrets").SetValue(false));
             Config.SubMenu("Misc").AddItem(new MenuItem("gapClose", "Auto-Knockback Gapclosers").SetValue(true));
@@ -192,10 +189,6 @@ namespace FedMaokai
             if (IgniteSlot != SpellSlot.Unknown && Player.Spellbook.CanUseSpell(IgniteSlot) == SpellState.Ready && iTarget.Health < Idamage)
             {
                 Player.Spellbook.CastSpell(IgniteSlot, iTarget);
-                if (Config.Item("laugh").GetValue<bool>())
-                {
-                    Game.Say("/l");
-                }
             }
         }
        
@@ -220,10 +213,6 @@ namespace FedMaokai
             if (Utility.UnderTurret(wTarget, false) && W.IsReady())
             {
                 W.Cast(wTarget);
-                if (Config.Item("laugh").GetValue<bool>())
-                {
-                    Game.Say("/l");
-                }
             }
         }
 
@@ -239,7 +228,6 @@ namespace FedMaokai
             }
             if (qTarget != null && Config.Item("UseQCombo").GetValue<bool>() && Q.IsReady())
             {
-                if (!qTarget.IsVisible)
                 Q.Cast(qTarget);
             }
             if (eTarget != null && Config.Item("UseECombo").GetValue<bool>() && E.IsReady())
@@ -279,7 +267,6 @@ namespace FedMaokai
 
             if (qTarget != null && Config.Item("UseQHarass").GetValue<bool>() && Q.IsReady())
             {
-                if (!qTarget.IsVisible)
                 Q.Cast(qTarget);
             }
             if (eTarget != null && Config.Item("UseEHarass").GetValue<bool>() && E.IsReady())
@@ -295,7 +282,6 @@ namespace FedMaokai
 
             if (qTarget != null && Config.Item("UseQHarass").GetValue<bool>() && Q.IsReady())
             {
-                if (!qTarget.IsVisible)
                 Q.Cast(qTarget);
             }
             if (eTarget != null && Config.Item("UseEHarass").GetValue<bool>() && E.IsReady())
@@ -359,10 +345,6 @@ namespace FedMaokai
                 if (Q.IsReady() && unit.IsValidTarget(W.Range))
                 {
                     W.Cast(unit);
-                }
-                if (Config.Item("laugh").GetValue<bool>())
-                {
-                    Game.Say("/l");
                 }
             }
         }
