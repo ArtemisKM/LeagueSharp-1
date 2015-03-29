@@ -2,6 +2,22 @@ LeagueSharp
 ===========
 Only L# Files here, working on just updating some out of date scripts and then working on my own. 
 
+DD/MM/YYYY
+
+
+Updated (03/29/2015)
+
+All Assemble's are working for 5.6!
+
+Mao's Q might be bugged not sure.....
+
+Make sure to check out the official forum for the latest information.
+
+https://www.joduska.me/forum/topic/14445-56-fed-champs-akali-aatrox-yasuo/
+
+
+
+
 
 Updated (12/28/2014)
 
