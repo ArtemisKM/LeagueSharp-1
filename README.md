@@ -21,7 +21,7 @@ https://www.joduska.me/forum/topic/14445-56-fed-champs-akali-aatrox-yasuo/
 
 Updated (12/28/2014)
 
-Fed LB doesn't use DFG... It works with activator though. Im looking at the code it seems that you have to call the item a different way. Should be a easy fix. I think ill have it done 1-2 days.
+Fed LB doesn't use DFG... It works with activator though. Im looking at the code it seems that you have to call the item a different way. Should be a easy fix. I think ill have it done 1-2 days. // dfg ??
 
 Fed Mao - Doesnt use Q in combo mode but uses it in gank mode. Which is fucked due to the fact that the code is literally the same thing for both.
 
