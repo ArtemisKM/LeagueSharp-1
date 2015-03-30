@@ -41,12 +41,12 @@ namespace Akali
         {
             Player = ObjectManager.Player;
             if (Player.BaseSkinName != ChampionName) return;
-            Game.PrintChat("Akali by Chogart Loaded");
+            Game.PrintChat("Akali by Chogart Loaded - Fixed by Rise :D");
 
             Q = new Spell(SpellSlot.Q, 600);
             W = new Spell(SpellSlot.W, 700);
             E = new Spell(SpellSlot.E, 325);
-            R = new Spell(SpellSlot.R, 800);
+            R = new Spell(SpellSlot.R, 700);
 
             SpellList.Add(Q);
             SpellList.Add(W);
